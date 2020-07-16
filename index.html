@@ -12,8 +12,34 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-
         <h1>tikTaktow</h1>
+        <p>How clever!</p>
+        <p id="message"></p>
+
+      <div id="unauthenticated">
+        <form id="sign-up">
+          <input name="credentials[email]" type="text" placeholder="email">
+          <input name="credentials[password]" type="password" placeholder="password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+          <button type="submit">Sign up!</button>
+        </form>
+        <form id="sign-in">
+          <input name="credentials[email]" type="text" placeholder="email">
+          <input name="credentials[password]" type="password" placeholder="password">
+          <button type="submit">Sign in!</button>
+        </form>
+      </div>
+      <div id="authenticated">
+        <form id="change-password">
+          <input name="passwords[old]" type="password" placeholder="old password">
+          <input name="passwords[new]" type="password" placeholder="new password">
+          <button type="submit">Change password</button>
+        </form>
+        <form id="sign-out">
+          <button type="submit">Sign out!</button>
+        </form>
+
+
 
 
       <div class="container">
@@ -28,7 +54,7 @@
             <div class="col-xl-4 box">8</div>
             <div class="col-xl-4 box">9</div>
           </div>
-
       </div>
+    </div>
     </body>
 </html>
