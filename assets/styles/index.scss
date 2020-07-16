@@ -3,3 +3,11 @@
   // visibility: hidden;
   display: none;
 }
+
+.box {
+  align-items: center;
+  border: 2px solid black;
+  display: flex;
+  height: 90px;
+  justify-content: center;
+}
