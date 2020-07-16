@@ -25,6 +25,9 @@ const changePasswordFailure = function (response) {
 }
 const signOutSuccess = function () {
   $('#message').text('You are signed out!')
+  $('#unauthenticated').show()
+  $('#authenticated').hide()
+  store.user = null
 }
 
 module.exports = {
