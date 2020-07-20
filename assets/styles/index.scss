@@ -1,8 +1,24 @@
 @import '~bootstrap/scss/bootstrap';
 
+html {
+  background: #e6e9e9
+}
+
 #authenticated {
   // visibility: hidden;
   display: none;
+}
+
+body {
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
+    color: black;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 2em 2em 4em;
 }
 
 .box {
@@ -11,4 +27,12 @@
   display: flex;
   height: 90px;
   justify-content: center;
+}
+
+.container {
+  display: flex;
+}
+
+#update-game {
+  background-color: #5DADE2;
 }
