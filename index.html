@@ -19,33 +19,33 @@
         <p id="player-stats"></p>
 
       <div id="unauthenticated">
-        <form id="sign-up">
+        <form id="sign-up" class="form">
           <input name="credentials[email]" type="text" placeholder="email">
           <input name="credentials[password]" type="password" placeholder="password">
           <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
           <button type="submit">Sign up!</button>
         </form>
-        <form id="sign-in">
+        <form id="sign-in" class="form">
           <input name="credentials[email]" type="text" placeholder="email">
           <input name="credentials[password]" type="password" placeholder="password">
           <button type="submit">Sign in!</button>
         </form>
       </div>
       <div id="authenticated">
-        <form id="change-password">
+        <form id="change-password" class="form">
           <input name="passwords[old]" type="password" placeholder="old password">
           <input name="passwords[new]" type="password" placeholder="new password">
           <button type="submit">Change password</button>
         </form>
-        <form id="sign-out">
+        <form id="sign-out" class="button">
           <button type="submit">Sign out!</button>
         </form>
-        <form id="create-game">
+        <form id="create-game" class="button">
           <button type="submit">Create a new game!</button>
-        <form id="show-game">
+        <form id="show-game" class="button">
           <button type="submit">Show the game!</button>
         </form>
-        <form id="index-game">
+        <form id="index-game" class="button">
           <button type="submit">Show game index</button>
         </form>
         <div class="container">

@@ -1,24 +1,27 @@
 @import '~bootstrap/scss/bootstrap';
 
 html {
-  background: #e6e9e9
+
 }
 
 #authenticated {
   // visibility: hidden;
   display: none;
+  padding: 20px
 }
 
 body {
-    background: #fff;
+    background: #ECECEC;
+    background-image: linear-gradient(to left, #9E9E9E, #C2C2C2);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
-    color: black;
+    color: #5DADE2;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     margin: 0 auto;
     max-width: 800px;
     padding: 2em 2em 4em;
+
 }
 
 .box {
@@ -31,8 +34,17 @@ body {
 
 .container {
   display: flex;
+  margin: 20px
+}
+
+.form {
+  margin: 8px;
+}
+.button {
+  margin: 8px;
 }
 
 #update-game {
   background-color: #5DADE2;
+  color: #EE1D52
 }

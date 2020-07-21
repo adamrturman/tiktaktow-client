@@ -5,7 +5,7 @@ let turn = true
 
 const createGameSuccess = function (response) {
   turn = true
-  const currentPlayer = turn ? 'x' : 'o'
+  const currentPlayer = turn ? 'X' : 'O'
     $('#message').text('The game has started! ' + 'it is ' + currentPlayer + '\'s' + ' turn')
     $('#end-message').text(' ')
     $('#player-stats').text(' ')
@@ -38,14 +38,14 @@ const updateGameFailure = function (response) {
 }
 
 const updateGameSuccess = function (response) {
-  const currentPlayer = turn ? 'x' : 'o'
-  const futurePlayer = !turn ? 'x' : 'o'
+  const currentPlayer = turn ? 'X' : 'O'
+  const futurePlayer = !turn ? 'X' : 'O'
   if (store.currentStatus) {
     $('#end-message').text('Game over! ' + futurePlayer + ' has won!')
     $('#message').text('')
   } else {
     $(store.currentBox).text(currentPlayer)
-    $('#message').text('it is ' + futurePlayer + '\'s' + ' turn')
+    $('#message').text('It is ' + futurePlayer + '\'s' + ' turn')
   }
   store.game = response.game
   checkForWinner(store.game.cells)
