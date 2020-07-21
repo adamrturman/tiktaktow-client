@@ -67,14 +67,14 @@ const updateGameSuccess = function (response) {
 //  Create a function that takes in the array
 
 const checkForWinner = function (gameBoard) {
-  const currentPlayer = turn ? 'x' : 'o'
-  console.log(store.currentStatus)
+  const currentPlayer = turn ? 'X' : 'O'
   if (store.currentStatus) {
     return
   } else {
     if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] || gameBoard[3] !== '' && gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] || gameBoard[6] !== '' && gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8]  || gameBoard[0] !== '' && gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6] || gameBoard[1] !== '' && gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7]  || gameBoard[2] !== '' && gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8]  || gameBoard[0] !== '' && gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8]  || gameBoard[6] !== '' && gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6]) {
       store.currentStatus = true
       $('#end-message').text(currentPlayer + ' has won the game!')
+      $('#message').text(' ')
     }
   }
 //  and checks for a winning combo

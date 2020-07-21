@@ -10,6 +10,7 @@ const signUpFailure = function (response) {
 }
 const signInSuccess = function (response) {
   $('#message').text('You are signed in!')
+  $('#clever').html('So clever!')
   store.user = response.user
   $('#authenticated').show()
   $('#unauthenticated').hide()
