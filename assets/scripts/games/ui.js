@@ -41,7 +41,7 @@ const updateGameSuccess = function (response) {
   const currentPlayer = turn ? 'X' : 'O'
   const futurePlayer = !turn ? 'X' : 'O'
   if (store.currentStatus) {
-    $('#end-message').text('Game over! ' + futurePlayer + ' has won!')
+    $('#end-message').text('No! The game is over! Play again or log out!')
     $('#message').text('')
   } else {
     $(store.currentBox).text(currentPlayer)
@@ -71,10 +71,15 @@ const checkForWinner = function (gameBoard) {
   if (store.currentStatus) {
     return
   } else {
-    if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] || gameBoard[3] !== '' && gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] || gameBoard[6] !== '' && gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8]  || gameBoard[0] !== '' && gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6] || gameBoard[1] !== '' && gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7]  || gameBoard[2] !== '' && gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8]  || gameBoard[0] !== '' && gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8]  || gameBoard[6] !== '' && gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6]) {
+    if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] || gameBoard[3] !== '' && gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] || gameBoard[6] !== '' && gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8] || gameBoard[0] !== '' && gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6] || gameBoard[1] !== '' && gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7] || gameBoard[2] !== '' && gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8] || gameBoard[0] !== '' && gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8] || gameBoard[6] !== '' && gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6]) {
       store.currentStatus = true
       $('#end-message').text(currentPlayer + ' has won the game!')
       $('#message').text(' ')
+    } else if (gameBoard[0] !== '' && gameBoard[1] !== '' && gameBoard[2] !== '' && gameBoard[3] !== '' && gameBoard[4] !== '' && gameBoard[5] !== '' && gameBoard[6] !== '' && gameBoard[7] !== '' && gameBoard[8] !== '') {
+      $('#end-message').text('It is a tie! Play again or log out')
+      $('#message').text(' ')
+    }
+
     }
   }
 //  and checks for a winning combo
@@ -83,7 +88,7 @@ const checkForWinner = function (gameBoard) {
 
 //  displays the message that person who made the last move has won the game ()
 
-}
+
 //  If those conditions aren't met, switch players and continue the game which is changePlayers()
 
 // const checkforTie = function (gameBoard) {

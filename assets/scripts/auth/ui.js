@@ -29,6 +29,7 @@ const signOutSuccess = function () {
   $('.box').text('')
   $('#end-message').text(' ')
   $('#player-stats').text(' ')
+  $('#clever').html('How clever!')
   $('#unauthenticated').show()
   $('#authenticated').hide()
   store.user = null
