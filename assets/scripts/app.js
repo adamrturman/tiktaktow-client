@@ -12,6 +12,7 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#create-game').on('click', gameEvents.onCreateGame)
+  $('#restart-game').on('submit', gameEvents.onRestartGame)
   //$('#show-game').on('click', gameEvents.onShowGame)
   $('#update-game').on('click', gameEvents.onUpdateGame)
 })

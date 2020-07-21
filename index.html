@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>tikTakTow</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,9 +12,11 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-        <h1>tikTaktow</h1>
+        <h1>tikTakTow</h1>
         <p>How clever!</p>
         <p id="message"></p>
+        <p id="end-message"></p>
+        <p id="player-stats"></p>
 
       <div id="unauthenticated">
         <form id="sign-up">
@@ -40,21 +42,23 @@
         </form>
         <form id="create-game">
           <button type="submit">Create a new game!</button>
+        <form id="restart-game">
+            <button type="submit">Restart a fresh game!</button>
         </form>
         <form id="show-game">
           <button type="submit">Show the game!</button>
         </form>
         <div class="container">
             <div id="update-game" class="row">
-              <div id="box-zero" class="col-4 col-sm-4 box" class="cell" data-cell-index="0">0</div>
-              <div id="box-one" class="col-4 col-sm-4 box" class="cell" data-cell-index="1">1</div>
-              <div id="box-two" class="col-4 col-sm-4 box" class="cell"  data-cell-index="2">2</div>
-              <div id="box-three" class="col-4 col-sm-4 box" class="cell" data-cell-index="3">3</div>
-              <div id="box-four" class="col-4 col-sm-4 box" class="cell" data-cell-index="4">4</div>
-              <div id="box-five" class="col-4 col-sm-4 box" class="cell" data-cell-index="5">5</div>
-              <div id="box-six" class="col-4 col-sm-4 box" class="cell" data-cell-index="6">6</div>
-              <div id="box-seven" class="col-4 col-sm-4 box" class="cell" data-cell-index="7">7</div>
-              <div id="box-eight" class="col-4 col-sm-4 box" class="cell" data-cell-index="8">8</div>
+              <div id="box-zero" class="col-4 col-sm-4 box" class="cell" data-cell-index="0"></div>
+              <div id="box-one" class="col-4 col-sm-4 box" class="cell" data-cell-index="1"></div>
+              <div id="box-two" class="col-4 col-sm-4 box" class="cell"  data-cell-index="2"></div>
+              <div id="box-three" class="col-4 col-sm-4 box" class="cell" data-cell-index="3"></div>
+              <div id="box-four" class="col-4 col-sm-4 box" class="cell" data-cell-index="4"></div>
+              <div id="box-five" class="col-4 col-sm-4 box" class="cell" data-cell-index="5"></div>
+              <div id="box-six" class="col-4 col-sm-4 box" class="cell" data-cell-index="6"></div>
+              <div id="box-seven" class="col-4 col-sm-4 box" class="cell" data-cell-index="7"></div>
+              <div id="box-eight" class="col-4 col-sm-4 box" class="cell" data-cell-index="8"></div>
             </div>
           </div>
       </div>

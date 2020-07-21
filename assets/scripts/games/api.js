@@ -12,6 +12,15 @@ const createGame = function () {
     method: 'POST'
   })
 }
+const restartGame = function () {
+  return $.ajax({
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    url: config.apiUrl + '/games',
+    method: 'POST'
+  })
+}
 
 //console.log(createGame)
 // const showGame = function (id) {
@@ -48,15 +57,16 @@ const updateGame = function (clickedCellData) {
           "value": store.currentValue
         },
         "over": store.game.over
-      }
-}
-  })
+    }
+  }
+})
 }
 
 
 
 module.exports = {
   createGame,
+  restartGame,
   //showGame
    updateGame
 }

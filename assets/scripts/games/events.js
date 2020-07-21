@@ -4,18 +4,20 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
 
-//  Initialize players
-let currentPlayer = "x"
-const playerOne = "x"
-const playerTwo = "o"
-store.currentValue = currentPlayer
+
 
 const onCreateGame = function (event) {
   event.preventDefault()
-
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
+}
+const onRestartGame = function (event) {
+  event.preventDefault()
+  api.restartGame()
+    .then(ui.restartGameSuccess)
+    .catch(ui.restartGameFailure)
+  console.log(ui.restartGameSuccess)
 }
 
 
@@ -75,6 +77,7 @@ const onUpdateGame = function (event) {
 
 module.exports = {
   onCreateGame,
+  onRestartGame,
   //onShowGame,
   onUpdateGame
 }
