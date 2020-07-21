@@ -4,43 +4,44 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
 
+let turn = true
 
 
 const onCreateGame = function (event) {
+  turn = true
   event.preventDefault()
+  store.currentStatus = false
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
+  return turn
 }
-const onRestartGame = function (event) {
-  event.preventDefault()
-  api.restartGame()
-    .then(ui.restartGameSuccess)
-    .catch(ui.restartGameFailure)
-  console.log(ui.restartGameSuccess)
-}
-
 
 const onUpdateGame = function (event) {
-  event.preventDefault()
   const clickedCell = event.target
-  const clickedCellData = $(clickedCell).data('cell-index')
-  store.currentBox = event.target
-
-
-  console.log(event)
-  console.log(event.target.id) // This gets me "box-one," but not the data-index
-  console.log(store.game.cells)// This gets me the array of cells
-  console.log(store.game.over) // This says "false" because the game isn't over
-  console.log(store.game._id) //This is the game's ID
-  console.log(store.game)
-
-
-  api.updateGame(clickedCellData)
-    .then(ui.updateGameSuccess)
-    .catch(ui.updateGameFailure)
+  const text = $(clickedCell).text()
+  if (text !== '') {
+    $('#message').text('Hey that space is already taken!')
+  } else {
+    const player = turn ? 'x' : 'o'
+    event.preventDefault()
+    const clickedCellData = $(clickedCell).data('cell-index')
+    store.currentValue = player
+    store.currentBox = clickedCell
+    api.updateGame(clickedCellData)
+      .then(ui.updateGameSuccess)
+      .catch(ui.updateGameFailure)
+    turn = !turn
+    return turn
+  }
 }
-
+const onIndexGame = function (event) {
+  event.preventDefault()
+  api.createGame()
+    .then(ui.indexGameSuccess)
+    .catch(ui.indexGameFailure)
+}
+//}
 
 //  create a variable to store the two players
 // const playerOne = "x"
@@ -77,9 +78,9 @@ const onUpdateGame = function (event) {
 
 module.exports = {
   onCreateGame,
-  onRestartGame,
   //onShowGame,
-  onUpdateGame
+  onUpdateGame,
+  onIndexGame
 }
 
 // //// 2. events.js add a click event for the element

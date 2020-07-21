@@ -24,7 +24,10 @@ const changePasswordFailure = function (response) {
   $('#message').text('You did not change your password!')
 }
 const signOutSuccess = function () {
-  $('#message').text('You are signed out!')
+  $('#message').text('You are signed out! Sign in and play again!')
+  $('.box').text('')
+  $('#end-message').text(' ')
+  $('#player-stats').text(' ')
   $('#unauthenticated').show()
   $('#authenticated').hide()
   store.user = null

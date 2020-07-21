@@ -1,38 +1,24 @@
 'use strict'
 const store = require('../store')
 
+let turn = true
 
 const createGameSuccess = function (response) {
-    $('#message').text('The game has started!')
+  turn = true
+  const currentPlayer = turn ? 'x' : 'o'
+    $('#message').text('The game has started! ' + 'it is ' + currentPlayer + '\'s' + ' turn')
+    $('#end-message').text(' ')
+    $('#player-stats').text(' ')
     store.game = response.game
-
 //  The value of all cells (indexes in the array)
 //  resets to empty string when this button is clicked
   $(".box").text('')
-
-
-  //  console.log(store.game)
-    // console.log('store: ', store)
-    // console.log('token: ', store.user.token)
-    // console.log(store.game.cells)
-    // console.log(store.game.over)
+  return turn
   }
 //  This might be redundant
 const createGameFailure = function () {
   $('#message').text('Umm....')
 }
-//Remove all restart button stuff
-const restartGameSuccess = function (response) {
-  $('#message').text('A new game has started!')
-  store.game = response.game
-  $('.cell').text('')
-  console.log('we are in the restart')
-}
-
-const restartGameFailure = function (response) {
-  $('#message').text('New game failed to start')
-}
-
 // const showGameSuccess = function (event) {
 //   $('#message').text('Go!')
 // }
@@ -44,59 +30,59 @@ const restartGameFailure = function (response) {
 
 
 //  Initialize players
-let currentPlayer = "x"
-const playerOne = "x"
-const playerTwo = "o"
 
-const changePlayers = function () {
-  if (currentPlayer === playerOne) {
-    currentPlayer = playerTwo
-  } else {
-    currentPlayer = playerOne
-  }
-  store.currentValue = currentPlayer
-}
-const updateGameFailure = function () {
+
+const updateGameFailure = function (response) {
+  const currentPlayer = turn ? 'x' : 'o'
   $('#message').text('Hey ' + currentPlayer + ' that is already taken!')
 }
+
 const updateGameSuccess = function (response) {
-  if ($(store.currentBox).text() === '') {
-    $('#message').text(currentPlayer + ' just went!')
-    $(store.currentBox).text(response.game.cells[store.currentBox.dataset.cellIndex])
-    checkForWinner(store.game.cells)
-
-
-    // if checkForWinner returns true,
+  const currentPlayer = turn ? 'x' : 'o'
+  const futurePlayer = !turn ? 'x' : 'o'
+  if (store.currentStatus) {
+    $('#end-message').text('Game over! ' + futurePlayer + ' has won!')
+    $('#message').text('')
+  } else {
+    $(store.currentBox).text(currentPlayer)
+    $('#message').text('it is ' + futurePlayer + '\'s' + ' turn')
+  }
+  store.game = response.game
+  checkForWinner(store.game.cells)
+  turn = !turn
+  return turn
+}
+//   if checkForWinner returns true,
 //     if (checkForWinner(store.game.cells) === true) {
 //   //    change the property over from false to true
 //   $(store.game).attr('over', 'true')
 // // if no winners, change players
 // } } else if (checkForWinner(store.game.cells) !== true) {
-    changePlayers()
+
 // if you pick an unavailable space, run updateGameFailure
-  } else {
-    updateGameFailure()
-  }
-}
+
 //  Does this entire function need to be part of updateGameSuccess function above after
 // store.game = response.game and before changePlayers()?
 
 //  Create a function that takes in the array
 
 const checkForWinner = function (gameBoard) {
+  const currentPlayer = turn ? 'x' : 'o'
+  console.log(store.currentStatus)
+  if (store.currentStatus) {
+    return
+  } else {
+    if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] || gameBoard[3] !== '' && gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] || gameBoard[6] !== '' && gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8]  || gameBoard[0] !== '' && gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6] || gameBoard[1] !== '' && gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7]  || gameBoard[2] !== '' && gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8]  || gameBoard[0] !== '' && gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8]  || gameBoard[6] !== '' && gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6]) {
+      store.currentStatus = true
+      $('#end-message').text(currentPlayer + ' has won the game!')
+    }
+  }
 //  and checks for a winning combo
- if (gameBoard[0] !== '' && gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] ||
-     gameBoard[3] !== '' && gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] ||
-     gameBoard[6] !== '' && gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8]  ||
-     gameBoard[0] !== '' && gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6]  ||
-     gameBoard[1] !== '' && gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7]  ||
-     gameBoard[2] !== '' && gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8]  ||
-     gameBoard[0] !== '' && gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8]  ||
-     gameBoard[6] !== '' && gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6])
+
 //   and changes the over value within the game object to true
 
 //  displays the message that person who made the last move has won the game ()
- $('#end-message').text(currentPlayer + ' has won the game!')
+
 }
 //  If those conditions aren't met, switch players and continue the game which is changePlayers()
 
@@ -106,14 +92,16 @@ const checkForWinner = function (gameBoard) {
 // //  display the message that its a tie
 // $('#end-message').text('It is a tie!')
 // }
-
+const indexGameSuccess = function (response) {
+  $('#player-stats').text('Eventually show winning stats!')
+  console.log(response)
+}
 
 module.exports = {
   createGameSuccess,
   createGameFailure,
-  restartGameSuccess,
-  restartGameFailure,
   updateGameSuccess,
   updateGameFailure,
-  checkForWinner
+  checkForWinner,
+  indexGameSuccess
 }

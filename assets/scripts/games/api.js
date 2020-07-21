@@ -12,15 +12,7 @@ const createGame = function () {
     method: 'POST'
   })
 }
-const restartGame = function () {
-  return $.ajax({
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    url: config.apiUrl + '/games',
-    method: 'POST'
-  })
-}
+
 
 //console.log(createGame)
 // const showGame = function (id) {
@@ -34,14 +26,13 @@ const restartGame = function () {
 // }
 
 const updateGame = function (clickedCellData) {
-  //Checks to see if I'm accessing store
-  console.log(store.user.token) // returns token
-  console.log(store.user._id) // returns id
-  console.log(store.game.cells)  // returns empty array
-  console.log(store.game.over) // returns false
-  console.log(store.game._id) //  returns game id
-  console.log(store.game.owner) // returns user id
-
+  // //Checks to see if I'm accessing store
+  // console.log(store.user.token) // returns token
+  // console.log(store.user._id) // returns id
+  // console.log(store.game.cells)  // returns empty array
+  // console.log(store.game.over) // returns false
+  // console.log(store.game._id) //  returns game id
+  // console.log(store.game.owner) // returns user id
 
 
   return $.ajax({
@@ -56,17 +47,29 @@ const updateGame = function (clickedCellData) {
           "index": clickedCellData,
           "value": store.currentValue
         },
-        "over": store.game.over
+        "over": store.currentStatus
     }
   }
 })
 }
 
+const indexGame = function () {
+  return $.ajax({
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    data: {
+      "games": []
+    }
+  })
+}
 
 
 module.exports = {
   createGame,
-  restartGame,
   //showGame
-   updateGame
+   updateGame,
+   indexGame
 }
