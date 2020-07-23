@@ -98,8 +98,7 @@ const checkForWinner = function (gameBoard) {
 // $('#end-message').text('It is a tie!')
 // }
 const indexGameSuccess = function (response) {
-  $('#player-stats').text('Eventually show winning stats!')
-  console.log(response)
+  $('#player-stats').text(`You have played ${response.games.length - 1} games of tikTakTow` )
 }
 
 module.exports = {

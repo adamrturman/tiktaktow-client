@@ -13,6 +13,10 @@ const onCreateGame = function (event) {
   store.currentStatus = false
   api.createGame()
     .then(ui.createGameSuccess)
+    //  let's also make the api call that will show the index
+    .then(api.indexGame)
+    //  and it's subsequent ui update
+    .then(ui.indexGameSuccess)
     .catch(ui.createGameFailure)
   return turn
 }
@@ -35,6 +39,7 @@ const onUpdateGame = function (event) {
     return turn
   }
 }
+//might not need this...
 const onIndexGame = function (event) {
   event.preventDefault()
   api.createGame()
