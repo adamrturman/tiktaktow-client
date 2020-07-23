@@ -45,7 +45,7 @@ const updateGameSuccess = function (response) {
     $('#message').text('')
   } else {
     $(store.currentBox).text(currentPlayer)
-    $('#message').text('It is ' + futurePlayer + '\'s' + ' turn')
+    $('#message').text('Nice move ' + currentPlayer + ' It is ' + futurePlayer + '\'s' + ' turn')
   }
   store.game = response.game
   checkForWinner(store.game.cells)
@@ -82,25 +82,16 @@ const checkForWinner = function (gameBoard) {
 
     }
   }
-//  and checks for a winning combo
 
-//   and changes the over value within the game object to true
-
-//  displays the message that person who made the last move has won the game ()
-
-
-//  If those conditions aren't met, switch players and continue the game which is changePlayers()
-
-// const checkforTie = function (gameBoard) {
-//   //  if all of the indexes of the gameboard have values other than '' and it doesn't find any winning combos
-//   if gameBoard
-// //  display the message that its a tie
-// $('#end-message').text('It is a tie!')
-// }
 const indexGameSuccess = function (response) {
-  $('#player-stats').text(`You have played ${response.games.length - 1} games of tikTakTow` )
+  if (response.games.length - 1 === 0) {
+    $('#player-stats').text('You have not played any games of tikTakTow yet')
+  } else if (response.games.length - 1 === 1) {
+    $('#player-stats').text(`You have only played ${response.games.length - 1} game of tikTakTow so far`)
+  } else {
+    $('#player-stats').text(`You have already played ${response.games.length - 1} games of tikTakTow`)
+  }
 }
-
 module.exports = {
   createGameSuccess,
   createGameFailure,

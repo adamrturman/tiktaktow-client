@@ -40,7 +40,7 @@ const indexGame = function () {
     url: config.apiUrl + '/games',
     method: 'GET',
     data: {
-      "games": []
+      games: []
     }
   })
 }
