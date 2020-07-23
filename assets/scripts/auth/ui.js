@@ -4,6 +4,7 @@ const store = require('../store')
 
 const signUpSuccess = function (response) {
   $('#message').text('You are signed up!')
+  $('form').trigger('reset')
 }
 const signUpFailure = function (response) {
   $('#message').text('You did not sign up!')
@@ -14,12 +15,14 @@ const signInSuccess = function (response) {
   store.user = response.user
   $('#authenticated').show()
   $('#unauthenticated').hide()
+  $('form').trigger('reset')
 }
 const signInFailure = function (response) {
   $('#message').text('You did not sign in!')
 }
 const changePasswordSuccess = function (response) {
   $('#message').text('You changed your password!')
+  $('form').trigger('reset')
 }
 const changePasswordFailure = function (response) {
   $('#message').text('You did not change your password!')
