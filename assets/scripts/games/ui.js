@@ -1,37 +1,18 @@
 'use strict'
 const store = require('../store')
-
+//  Initialize players (turns)
 let turn = true
-
 const createGameSuccess = function (response) {
   turn = true
+  // ternary to switch between x and o
   const currentPlayer = turn ? 'X' : 'O'
-    $('#message').text('The game has started! ' + 'it is ' + currentPlayer + '\'s' + ' turn')
-    $('#end-message').text(' ')
-    $('#player-stats').text(' ')
-    store.game = response.game
-//  The value of all cells (indexes in the array)
-//  resets to empty string when this button is clicked
-  $(".box").text('')
+  $('#message').text('The game has started! ' + 'it is ' + currentPlayer + '\'s' + ' turn')
+  $('#end-message').text(' ')
+  $('#player-stats').text(' ')
+  store.game = response.game
+  $('.box').text('')
   return turn
-  }
-//  This might be redundant
-const createGameFailure = function () {
-  $('#message').text('Umm....')
 }
-// const showGameSuccess = function (event) {
-//   $('#message').text('Go!')
-// }
-//
-// //This might be redundant
-// const showGameFailure= function (event) {
-//   $('#message').text('Umm...')
-//  }
-
-
-//  Initialize players
-
-
 const updateGameFailure = function (response) {
   const currentPlayer = turn ? 'x' : 'o'
   $('#message').text('Hey ' + currentPlayer + ' that is already taken!')
@@ -52,20 +33,6 @@ const updateGameSuccess = function (response) {
   turn = !turn
   return turn
 }
-//   if checkForWinner returns true,
-//     if (checkForWinner(store.game.cells) === true) {
-//   //    change the property over from false to true
-//   $(store.game).attr('over', 'true')
-// // if no winners, change players
-// } } else if (checkForWinner(store.game.cells) !== true) {
-
-// if you pick an unavailable space, run updateGameFailure
-
-//  Does this entire function need to be part of updateGameSuccess function above after
-// store.game = response.game and before changePlayers()?
-
-//  Create a function that takes in the array
-
 const checkForWinner = function (gameBoard) {
   const currentPlayer = turn ? 'X' : 'O'
   if (store.currentStatus) {
@@ -79,13 +46,12 @@ const checkForWinner = function (gameBoard) {
       $('#end-message').text('It is a tie! Play again or log out')
       $('#message').text(' ')
     }
-
-    }
   }
+}
 
 const indexGameSuccess = function (response) {
   if (response.games.length - 1 === 0) {
-    $('#player-stats').text('You have not played any games of tikTakTow yet')
+    $('#player-stats').text('This is your first game of tikTakTow!')
   } else if (response.games.length - 1 === 1) {
     $('#player-stats').text(`You have only played ${response.games.length - 1} game of tikTakTow so far`)
   } else {
@@ -94,7 +60,6 @@ const indexGameSuccess = function (response) {
 }
 module.exports = {
   createGameSuccess,
-  createGameFailure,
   updateGameSuccess,
   updateGameFailure,
   checkForWinner,
