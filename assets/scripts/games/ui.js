@@ -3,6 +3,7 @@ const store = require('../store')
 //  Initialize players (turns)
 let turn = true
 const createGameSuccess = function (response) {
+  $('#update-game').show()
   turn = true
   // ternary to switch between x and o
   const currentPlayer = turn ? 'X' : 'O'
