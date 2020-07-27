@@ -77,7 +77,7 @@ into modals for a more slick, professional presentation.
 * jQuery
 * Atom
 
-## Screenshots of
+## Screenshots of Wireframes
 
 * ![Wireframe #1](https://i.imgur.com/dxNQNpT.jpg)
 * ![Wireframe #2](https://i.imgur.com/DuRndp3.jpg)
