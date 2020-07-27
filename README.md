@@ -23,8 +23,8 @@ hand to a previous lesson and refer back to that code as a basis. This
 process allowed me to set up the user authenication. I ran into more
 difficulty when it came to making the API calls for the game itself. It
 was a slower learning curve for me as I navigated these questions:
-* What data is needed?
-* How do I access it?
+* What data is needed from the store to complete the next step?
+* How do I access the data needed from the store.js file?
 
 When I encountered a problem, my first step was to look in the issue queue.
 Is someone else asking the same question? Did someone else already solve
