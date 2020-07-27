@@ -1,10 +1,11 @@
 # tikTakTow
 
-* Here is my first application: a single player version of the classic game Tic-Tac-Toe.
-* Although it appears minimalist at first, this project uses token authentication
+Here is my first application: a single player version of the classic game Tic-Tac-Toe.
+Although it appears minimalist at first, this project uses token authentication
 through an API to store information about users and past games.
-* The app also uses AJAX calls to allow the user to seamlessly flow
+The app also uses AJAX calls to allow the user to seamlessly flow
 from creating an account to playing the game.
+
 
 ## Links to the project
 
@@ -12,8 +13,29 @@ from creating an account to playing the game.
 
 * [Deployed App](https://adamrturman.github.io/tiktaktow-client/)
 
-## Planning story
-Add to this later
+## Planning Story & Problem Solving
+The first thing I did to plan for the project was to "plan with the end in mind": create a timeline that worked in reverse from my goal.
+
+![Game Project Plan](https://imgur.com/gallery/8PhU1Ua)
+
+As I began tackling the requirements, I would try to connect the task at
+hand to a previous lesson and refer back to that code as a basis. This
+process allowed me to set up the user authenication. I ran into more
+difficulty when it came to making the API calls for the game itself. It
+was a slower learning curve for me as I navigated these questions:
+* What data is needed?
+* How do I access it?
+When I encountered a problem, my first step was to look in the issue queue.
+Is someone else asking the same question? Did someone else already solve
+this problem? If I couldn't make the connection that way, I would frame my
+question in the most detailed way possible, sometimes answering my own
+question in the process. Sometimes I tried to tackle too many things at
+once and didn't realize there was a common error.
+I was able to work through the logic for the game ending in a win or a tie
+and all of the subsequent messaging independently. I wrote a lot of
+pseudocode to frame those code blocks and I would insert frequent
+console.log's to test what I had just written.
+
 
 ## User stories
 
@@ -29,7 +51,9 @@ with a password that I confirm.
 the first to three in a row horizontally/vertically/diagonally wins
 and the game ends.
 * As a signed in user, I want to see messaging that guides my user experience.
-* As a signed in user, I don’t want to see unnecessary information (inputs, buttons
+* As a signed in user, I don’t want to see unnecessary information (inputs, buttons, etc.)
+* As a signed in user who has won or lost, I want to have the option
+of logging out or playing again.
 
 ## Unresolved Issues & Stretch Goals
 
@@ -54,5 +78,5 @@ into modals for a more slick, professional presentation.
 
 ## Screenshots of
 
-* [Wireframe #1](https://imgur.com/gallery/fTKWint)
-* [Wireframe #2](https://imgur.com/gallery/tmDVTfM)
+* ![Wireframe #1](https://imgur.com/gallery/fTKWint)
+* ![Wireframe #2](https://imgur.com/gallery/tmDVTfM)
