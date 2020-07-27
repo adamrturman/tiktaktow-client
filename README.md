@@ -25,6 +25,7 @@ difficulty when it came to making the API calls for the game itself. It
 was a slower learning curve for me as I navigated these questions:
 * What data is needed?
 * How do I access it?
+
 When I encountered a problem, my first step was to look in the issue queue.
 Is someone else asking the same question? Did someone else already solve
 this problem? If I couldn't make the connection that way, I would frame my
