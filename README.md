@@ -16,7 +16,7 @@ from creating an account to playing the game.
 ## Planning Story & Problem Solving
 The first thing I did to plan for the project was to "plan with the end in mind": create a timeline that worked in reverse from my goal.
 
-![Game Project Plan](https://imgur.com/gallery/8PhU1Ua)
+![Game Project Plan](https://i.imgur.com/l8gD3Ca.jpg)
 
 As I began tackling the requirements, I would try to connect the task at
 hand to a previous lesson and refer back to that code as a basis. This
@@ -78,5 +78,5 @@ into modals for a more slick, professional presentation.
 
 ## Screenshots of
 
-* ![Wireframe #1](https://imgur.com/gallery/fTKWint)
-* ![Wireframe #2](https://imgur.com/gallery/tmDVTfM)
+* ![Wireframe #1](https://i.imgur.com/dxNQNpT.jpg)
+* ![Wireframe #2](https://i.imgur.com/DuRndp3.jpg)
