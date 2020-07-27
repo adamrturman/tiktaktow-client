@@ -79,5 +79,5 @@ into modals for a more slick, professional presentation.
 
 ## Screenshots of Wireframes
 
-* ![Wireframe #1](https://i.imgur.com/dxNQNpT.jpg)
-* ![Wireframe #2](https://i.imgur.com/DuRndp3.jpg)
+![Wireframe #1](https://i.imgur.com/dxNQNpT.jpg)
+![Wireframe #2](https://i.imgur.com/DuRndp3.jpg)
